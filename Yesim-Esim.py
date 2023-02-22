@@ -61,6 +61,7 @@ headers2={
 }
 res2=requests.post(url2,headers=headers2)
 sonuc2=res2.json()["sessionId"]
+print(sonuc2)
 
 #------------- Y Coin Çekme -----------#
 url3="https://iweb.yesim.app/v1/code_apply?ref_code&web_key="+sonuc2+"&ref_code=NQVO420&lang=en"
@@ -72,13 +73,19 @@ sonuc3=res3.json()
 #-------------- Esim Almak ------------#
 
 try:
-  requests.get("https://iweb.yesim.app/v1/activate_pay_as_you_go?web_key="+sonuc2+"&lang=en", timeout=1)
+  dark=requests.get("https://iweb.yesim.app/v1/activate_pay_as_you_go?web_key="+sonuc2+"&lang=en", timeout=5)
+  sonuc4=dark.json()=="OK"
+  print("KareKod İstendi")
 except requests.exceptions.Timeout:
-    print("BAŞARILI..")
+    print("KareKod Oluşturulamadı.")
+    raise SystemExit()
 print("")
-havali("QRKod Epostaya Gönderildi Epostayı kotrol Et!!")
-print("")
-havali("Bol Sömürmeler Ben DARK_ENZA")
+try:
+	dark1=requests.get("https://iweb.yesim.app/v1/show_my_qrs?web_key="+sonuc2+"&lang=en", timeout=5)
+	sonuc5=dark1.json()["Qrs"]
+	print("KareKod Epostaya Gönderildi")
+except:
+	print("KareKod Oluşturulamadı")
+	
+print("Bol Sömürmeler Ben DARK_ENZA")
 havali("Telegram @dark_enza / TG Kanalı @dwstoree")
-print("")
-havali("T4KL!TL3R 4SL1N1 YÜC3LT!R")
