@@ -73,12 +73,12 @@ sonuc3=res3.json()
 #-------------- Esim Almak ------------#
 
 try:
-  dark=requests.get("https://iweb.yesim.app/v1/activate_pay_as_you_go?web_key="+sonuc2+"&lang=en", timeout=5)
-  sonuc4=dark.json()=="OK"
-  print("KareKod İstendi")
+	dark=requests.get("https://iweb.yesim.app/v1/activate_pay_as_you_go?web_key="+sonuc2+"&lang=en", timeout=5)
+	sonuc4=dark.json()=="OK"
+	print("KareKod İstendi")
 except requests.exceptions.Timeout:
-    print("KareKod Oluşturulamadı.")
-    raise SystemExit()
+	print("KareKod Oluşturulamadı.")
+	raise SystemExit()
 print("")
 try:
 	dark1=requests.get("https://iweb.yesim.app/v1/show_my_qrs?web_key="+sonuc2+"&lang=en", timeout=5)
@@ -87,5 +87,5 @@ try:
 except:
 	print("KareKod Oluşturulamadı")
 	
-print("Bol Sömürmeler Ben DARK_ENZA")
+havali("Bol Sömürmeler Ben DARK_ENZA")
 havali("Telegram @dark_enza / TG Kanalı @dwstoree")
