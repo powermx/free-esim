@@ -61,7 +61,6 @@ headers2={
 }
 res2=requests.post(url2,headers=headers2)
 sonuc2=res2.json()["sessionId"]
-print(sonuc2)
 
 #------------- Y Coin Çekme -----------#
 url3="https://iweb.yesim.app/v1/code_apply?ref_code&web_key="+sonuc2+"&ref_code=NQVO420&lang=en"
